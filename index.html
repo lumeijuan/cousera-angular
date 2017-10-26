@@ -1,10 +1,34 @@
-<!DOCTYPE html>
-<html>
+<!doctype html>
+<html lang="en" ng-app='myFirstApp'>
   <head>
-    <meta charset="utf-8">
-    <title>Hello Coursera!</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="angular.min.js"></script>
+    <script src="app.js"></script>
+    <link rel="stylesheet" href="styles/bootstrap.min.css">
+    <style>
+      .message { font-size: 1.3em; font-weight: bold; }
+    </style>
+    <title>Lunch Checker</title>
   </head>
-  <body>
-    <h1>Hello Maggie Lu Student!</h1>
-  </body>
+<body>
+   <div class="container" ng-controller='myFirstController'>
+     <h1>Lunch Checker</h1>
+         <div class="form-group">
+             <input id="lunch-menu" type="text" ng-model="foodList"
+             placeholder="list comma separated dishes you usually have for lunch"
+             class="form-control">
+         </div>
+         <p>PS: empty string between two commas are taken as one food</p>
+         <div class="form-group">
+             <button class="btn btn-default" ng-click="calculateFoodNo()">Check If Too Much</button>
+             <div ng-if="foodNo==0">Please enter something!</div>
+             <div ng-if="foodNo<=3 && foodNo>0">Enjoy!</div>
+             <div ng-if="foodNo>3">Eat too much!</div>
+         </div>
+         <div class="form-group message">
+           <!-- Your message can go here. -->
+         </div>
+   </div>
+
+</body>
 </html>
